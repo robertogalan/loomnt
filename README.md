@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/loomnt.png" alt="loomnt" width="180">
+</p>
+
 # loomnt
 
 **Turn a Loom video into a to-do list.** Sometimes you just don't have five (or
@@ -87,9 +91,6 @@ pip install -e .
    export GEMINI_API_KEY=your-real-key-here
    ```
 
-> 🔒 Never paste your key into `README.md`, `.env.example`, or any tracked file. Keep it in
-> `.env` (already gitignored) or your shell environment.
-
 ## Usage
 
 Every session, activate the venv first, then run `loomnt` with a Loom share URL:
@@ -113,11 +114,11 @@ folder, like:
 ```json
 [
   {
-    "task_name": "Reorder elements in the Editor's top navigation bar",
-    "description": "- **Context**: The Editor page's top nav bar…\n- **Current Behavior**: …\n- **Expected Behavior**: Move the Search bar and status indicators to the far right…\n- **Timestamp Reference**: 00:34-01:38",
+    "task_name": "Make the checkout 'Pay now' button use the brand teal",
+    "description": "- **Context**: The checkout page's payment step.\n- **Current Behavior**: The narrator waves the cursor and says \"make this one pop\" — the 'Pay now' button is the default grey and blends into the page.\n- **Expected Behavior**: Recolor the 'Pay now' button to the brand teal (#00C2A8) so it reads as the primary action.\n- **Timestamp Reference**: 00:42-00:58",
     "priority": "Normal",
-    "tags": ["UI/UX", "Editor"],
-    "timestamp": "00:34-01:38"
+    "tags": ["UI/UX", "checkout"],
+    "timestamp": "00:42-00:58"
   }
 ]
 ```
