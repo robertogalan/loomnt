@@ -1,0 +1,61 @@
+name: Build binaries
+
+# Push a tag like v0.1.0 to build binaries AND attach them to a GitHub Release.
+# Or trigger manually (Actions tab → Run workflow) to build and download them as
+# workflow artifacts without cutting a release.
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            asset: loomnt-linux-x86_64
+          - os: macos-latest
+            asset: loomnt-macos-arm64
+          - os: windows-latest
+            asset: loomnt-windows-x86_64.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package + PyInstaller
+        run: |
+          python -m pip install --upgrade pip
+          pip install . pyinstaller
+
+      - name: Build standalone binary
+        run: pyinstaller --onefile --name loomnt --collect-all google.genai loomnt/__main__.py
+
+      - name: Rename artifact (Unix)
+        if: runner.os != 'Windows'
+        run: mv dist/loomnt "dist/${{ matrix.asset }}"
+
+      - name: Rename artifact (Windows)
+        if: runner.os == 'Windows'
+        run: move dist\loomnt.exe dist\${{ matrix.asset }}
+
+      - name: Upload build artifact (for manual runs)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: dist/${{ matrix.asset }}
+
+      - name: Attach to Release (tag pushes only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.asset }}
