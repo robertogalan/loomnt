@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+*.mp4
+*.webm
+tasks.json
+.loomnt_cache/
+.pytest_cache/
