@@ -58,8 +58,26 @@ can't be fetched, Gemini transcribes the audio itself, so the tool still works.
 
 ## Install
 
-Requires **Python 3.10+** and [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on your PATH
+All options need [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on your PATH
 (`brew install yt-dlp`, `pipx install yt-dlp`, or `sudo apt install yt-dlp`).
+
+### Quickest — pipx (Linux / macOS / Windows)
+
+One command, isolated, cross-platform (requires Python 3.10+ and
+[pipx](https://pipx.pypa.io)):
+
+```bash
+pipx install git+https://github.com/robertogalan/loomnt.git
+```
+
+### Prebuilt binary (no Python needed)
+
+Grab a standalone executable for your OS from the
+[**Releases**](https://github.com/robertogalan/loomnt/releases) page
+(Linux / macOS / Windows), make it executable, and run it. You still need `yt-dlp`
+installed.
+
+### From source (for development)
 
 ```bash
 git clone https://github.com/robertogalan/loomnt.git
