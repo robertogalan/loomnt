@@ -55,7 +55,7 @@ def fetch_transcript(video_id: str, timeout: float = 15.0) -> str | None:
     """Best-effort fetch of Loom's auto-generated transcript.
 
     Loom exposes an unauthenticated GraphQL endpoint for captions. This is an
-    unofficial API, so any failure returns None — the pipeline then relies on
+    unofficial API, so any failure returns None - the pipeline then relies on
     Gemini's own audio transcription instead of failing.
     """
     query = {

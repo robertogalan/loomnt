@@ -11,7 +11,7 @@ cross-referencing their spoken words with their precise visual actions in the vi
 
 ANALYSIS RULES:
 1. TRACK THE CURSOR: At the exact timestamp of each spoken instruction, locate the mouse
-   cursor in the video — especially when the speaker uses a directional or vague word.
+   cursor in the video - especially when the speaker uses a directional or vague word.
 2. IDENTIFY THE UI ELEMENT: Analyze the interface directly under or immediately adjacent
    to the cursor at that timestamp. Identify the specific element (button name, input
    field, text block, image, nav bar, spacing/alignment issue, etc.).
@@ -35,7 +35,7 @@ def build_prompt(transcript: str | None) -> str:
         )
     else:
         parts.append(
-            "\nNo separate transcript was available — transcribe the audio yourself from "
+            "\nNo separate transcript was available - transcribe the audio yourself from "
             "the video and use the video's own timestamps to anchor cursor positions."
         )
     parts.append(

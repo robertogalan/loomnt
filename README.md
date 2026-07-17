@@ -5,7 +5,7 @@
 # loomn't
 
 **Turn a Loom video into a to-do list.** Sometimes you just don't have five (or
-twenty-five) minutes to watch a coworker's Loom — and that's okay. We love our coworkers.
+twenty-five) minutes to watch a coworker's Loom - and that's okay. We love our coworkers.
 We love their Looms. Loom walkthroughs are genuinely excellent briefings: rich, personal,
 full of context you'd never get from a Slack message. But sometimes you'd trade all that
 warmth for a crisp, to-the-point list of what you actually need to *do*.
@@ -14,12 +14,12 @@ warmth for a crisp, to-the-point list of what you actually need to *do*.
 
 > To our beloved coworkers: we treasure your Looms. This tool exists purely so we can act
 > on them faster, not so we can avoid them. (We'd never.) Think of it as turning a Loom
-> into an email — with AI.
+> into an email - with AI.
 
 ## Why this is more than a transcript
 
 A plain transcript of a screen recording is often useless on its own. Half of what gets
-said is *"turn this right here to that side"* or *"make this thing match that one"* —
+said is *"turn this right here to that side"* or *"make this thing match that one"* -
 pure gesture, meaningless without the picture. The speaker is pointing with their cursor
 and the words only make sense if you can see where it's pointing.
 
@@ -30,11 +30,11 @@ specific.
 
 That also makes it genuinely useful when you **can't** watch the video:
 
-- **Accessibility** — for blind and low-vision folks, a spoken "click here" is a dead end.
+- **Accessibility** - for blind and low-vision folks, a spoken "click here" is a dead end.
   Grounding the narration in the on-screen context turns it into something readable and
   actionable.
-- **Skimmers and the time-poor** — get the to-dos in ten seconds instead of ten minutes.
-- **Loom skeptics** — you know who you are. We still love you. Here's your list.
+- **Skimmers and the time-poor** - get the to-dos in ten seconds instead of ten minutes.
+- **Loom skeptics** - you know who you are. We still love you. Here's your list.
 
 ## How it works
 
@@ -52,7 +52,7 @@ Gemini (native video)  ── samples ~1 FPS + audio, watches the cursor over th
 JSON action items  →  pretty terminal table + tasks.json
 ```
 
-Gemini ingests the video natively — frames **and** audio — so it can follow the cursor at
+Gemini ingests the video natively - frames **and** audio - so it can follow the cursor at
 each spoken moment and resolve "this" and "that" to real UI elements. If Loom's transcript
 can't be fetched, Gemini transcribes the audio itself, so the tool still works.
 
@@ -61,7 +61,7 @@ can't be fetched, Gemini transcribes the audio itself, so the tool still works.
 All options need [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on your PATH
 (`brew install yt-dlp`, `pipx install yt-dlp`, or `sudo apt install yt-dlp`).
 
-### Quickest — pipx (Linux / macOS / Windows)
+### Quickest - pipx (Linux / macOS / Windows)
 
 One command, isolated, cross-platform (requires Python 3.10+ and
 [pipx](https://pipx.pypa.io)):
@@ -97,14 +97,14 @@ pip install -e .
    (click *Create API key*). It looks like `AIza…` or `AQ.…`.
 2. Tell `loomnt` about it, either way:
 
-   **Option A — a `.env` file (recommended).** Copy the example and paste your key in:
+   **Option A - a `.env` file (recommended).** Copy the example and paste your key in:
    ```bash
    cp .env.example .env
    # open .env and set:  GEMINI_API_KEY=your-real-key-here
    ```
    `.env` is gitignored, so your key never gets committed.
 
-   **Option B — an environment variable:**
+   **Option B - an environment variable:**
    ```bash
    export GEMINI_API_KEY=your-real-key-here
    ```
@@ -133,7 +133,7 @@ folder, like:
 [
   {
     "task_name": "Make the checkout 'Pay now' button use the brand teal",
-    "description": "- **Context**: The checkout page's payment step.\n- **Current Behavior**: The narrator waves the cursor and says \"make this one pop\" — the 'Pay now' button is the default grey and blends into the page.\n- **Expected Behavior**: Recolor the 'Pay now' button to the brand teal (#00C2A8) so it reads as the primary action.\n- **Timestamp Reference**: 00:42-00:58",
+    "description": "- **Context**: The checkout page's payment step.\n- **Current Behavior**: The narrator waves the cursor and says \"make this one pop\" - the 'Pay now' button is the default grey and blends into the page.\n- **Expected Behavior**: Recolor the 'Pay now' button to the brand teal (#00C2A8) so it reads as the primary action.\n- **Timestamp Reference**: 00:42-00:58",
     "priority": "Normal",
     "tags": ["UI/UX", "checkout"],
     "timestamp": "00:42-00:58"
@@ -142,7 +142,7 @@ folder, like:
 ```
 
 Each task carries a **timestamp reference** back to the video, so if the list ever makes
-you curious, you can jump straight to that moment and — yes — actually watch the Loom.
+you curious, you can jump straight to that moment and - yes - actually watch the Loom.
 
 ## Roadmap
 

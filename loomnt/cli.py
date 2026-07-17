@@ -41,7 +41,7 @@ def main(url: str, out: Path, model: str | None) -> None:
     _console.print(
         "[dim]  transcript found[/dim]"
         if transcript
-        else "[dim]  no native transcript — Gemini will transcribe audio[/dim]"
+        else "[dim]  no native transcript - Gemini will transcribe audio[/dim]"
     )
 
     with tempfile.TemporaryDirectory(prefix="loomnt_") as tmp:
