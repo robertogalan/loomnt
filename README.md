@@ -54,28 +54,61 @@ can't be fetched, Gemini transcribes the audio itself, so the tool still works.
 
 ## Install
 
-Requires Python 3.10+ and [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on your PATH.
+Requires **Python 3.10+** and [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) on your PATH
+(`brew install yt-dlp`, `pipx install yt-dlp`, or `sudo apt install yt-dlp`).
 
 ```bash
+git clone https://github.com/robertogalan/loomnt.git
+cd loomnt
+
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
 pip install -e .
 ```
 
-## Setup
+## Set your Gemini API key
 
-```bash
-cp .env.example .env
-# then edit .env and set GEMINI_API_KEY
-```
+`loomnt` uses Google's Gemini to watch the video, so it needs a **Gemini API key**.
+
+1. Get one for free at **[Google AI Studio → API keys](https://aistudio.google.com/apikey)**
+   (click *Create API key*). It looks like `AIza…` or `AQ.…`.
+2. Tell `loomnt` about it, either way:
+
+   **Option A — a `.env` file (recommended).** Copy the example and paste your key in:
+   ```bash
+   cp .env.example .env
+   # open .env and set:  GEMINI_API_KEY=your-real-key-here
+   ```
+   `.env` is gitignored, so your key never gets committed.
+
+   **Option B — an environment variable:**
+   ```bash
+   export GEMINI_API_KEY=your-real-key-here
+   ```
+
+> 🔒 Never paste your key into `README.md`, `.env.example`, or any tracked file. Keep it in
+> `.env` (already gitignored) or your shell environment.
 
 ## Usage
 
+Every session, activate the venv first, then run `loomnt` with a Loom share URL:
+
 ```bash
+source .venv/bin/activate
 loomnt https://www.loom.com/share/<video-id>
-loomnt https://www.loom.com/share/<video-id> --out my-tasks.json
-loomnt https://www.loom.com/share/<video-id> --model gemini-2.5-pro
 ```
 
-You get a prioritized table in the terminal, plus a `tasks.json` array like:
+More options:
+
+```bash
+loomnt https://www.loom.com/share/<video-id> --out my-tasks.json   # custom output file
+loomnt https://www.loom.com/share/<video-id> --model gemini-2.5-pro # override the model
+loomnt --help                                                       # see all options
+```
+
+You get a prioritized table in the terminal plus a `tasks.json` array in the current
+folder, like:
 
 ```json
 [
