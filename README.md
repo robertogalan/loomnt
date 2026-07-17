@@ -111,6 +111,20 @@ pip install -e .
    export GEMINI_API_KEY=your-real-key-here
    ```
 
+### Free tier: limits and privacy
+
+A free Gemini key **does** process video (frames and audio), so `loomnt` works out of the
+box. Two things to know:
+
+- **Usage limits, not a capability wall.** Video is token-heavy (~300 tokens per second of
+  video), so a handful of long recordings can hit the free tier's daily/rate limits. If you
+  see a `429`, you've hit a quota, not a broken feature. Wait it out, or run a cheaper,
+  higher-limit model: `loomnt <url> --model gemini-2.5-flash`.
+- **⚠️ Privacy.** On the **free tier, Google may use your content to improve their
+  products.** Don't run confidential or client videos through a free key. For anything
+  sensitive, use a **billing-enabled** Gemini project (paid usage is not used for training)
+  or Vertex AI with your organization's data-protection terms.
+
 ## Usage
 
 Every session, activate the venv first, then run `loomnt` with a Loom share URL:
