@@ -2,7 +2,7 @@
   <img src="assets/loomnt.png" alt="loomnt" width="180">
 </p>
 
-# loomnt
+# loomn't
 
 **Turn a Loom video into a to-do list.** Sometimes you just don't have five (or
 twenty-five) minutes to watch a coworker's Loom — and that's okay. We love our coworkers.
