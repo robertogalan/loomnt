@@ -97,14 +97,16 @@ pip install -e .
    (click *Create API key*). It looks like `AIza…` or `AQ.…`.
 2. Tell `loomnt` about it, either way:
 
-   **Option A - a `.env` file (recommended).** Copy the example and paste your key in:
+   **Option A - a `.env` file.** `loomnt` reads a `.env` file in the directory you run it
+   from. Create one with your key:
    ```bash
-   cp .env.example .env
-   # open .env and set:  GEMINI_API_KEY=your-real-key-here
+   echo "GEMINI_API_KEY=your-real-key-here" > .env
    ```
-   `.env` is gitignored, so your key never gets committed.
+   Keep that `.env` out of version control. If you cloned this repo, its `.gitignore`
+   already lists `.env`, so it won't be committed; anywhere else, make sure your own
+   `.gitignore` covers it (or just use Option B).
 
-   **Option B - an environment variable:**
+   **Option B - an environment variable (simplest for pipx/binary installs):**
    ```bash
    export GEMINI_API_KEY=your-real-key-here
    ```
