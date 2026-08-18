@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/loomnt.png" alt="loomnt" width="180">
+  <img src="assets/watermarked_img_16130602254619030712.jpg" alt="loomnt">
 </p>
 
 # loomn't
