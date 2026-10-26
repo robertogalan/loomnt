@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/watermarked_img_16130602254619030712.jpg" alt="loomnt">
-</p>
-
 # loomn't
 
 **Turn a Loom video into a to-do list.** Sometimes you just don't have five (or
